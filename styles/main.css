@@ -1,4 +1,6 @@
 header {
+	position: fixed;
+	width: 100%;
 	background-color: #0D47A1;
 	border-bottom: solid 4px white;
 	margin: 0px;
@@ -22,8 +24,10 @@ header {
 }
 
 .thumbnail-container {
+	position: relative;
+	top: 130px;
 	overflow: scroll;
-	height: 80%;
+	height: 50%;
 }
 
 .thumbnail {
@@ -50,20 +54,22 @@ header {
 
 
 .enlarged-photo-background {
-	position: absolute;
+	position: fixed;
 	height: 100%;
 	width: 100%;
 	border: solid 2px blue;
-	background-color: blue;
-	opacity: 0.5;
+	background-color: black;
+	opacity: 0.4;
 	z-index: 1;
 }
 
 .enlarged-photo {
-	position: absolute;
+	position: fixed;
 	top: 150px;
+	left: 25%;
+	right: 25%;
 	margin: 25px;
-	height: 200px;
+	width: 50%;
 	opacity: 1;
 	z-index: 2;
 }
