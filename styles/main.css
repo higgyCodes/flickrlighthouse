@@ -9,11 +9,6 @@ header {
 }
 
 
-.header-logo > img {
-	height: 50px;
-	width: 170px;
-}
-
 .header-logo {
 	font-family: Nunito;
 	color: white;
@@ -21,21 +16,30 @@ header {
 	display: inline-block;
 }
 
-
 #home {
 	background-color: #B0BEC5;
 	margin: 0px;
 }
 
 .thumbnail-container {
-	overflow: hidden
+	overflow: scroll;
+	height: 80%;
 }
 
 .thumbnail {
 	display: inline-block;
 	border: solid 10px white;
 	margin: 15px;
-	/*box-shadow: 10px 10px 5px #888888*/
+	box-shadow: 10px 10px 5px #888888
+}
+
+.thumbnail > img {
+	margin-bottom: -4px;
+	height: 240px;
+}
+
+.thumbnail > img:hover {
+	height: 242px;
 }
 
 .thumbnail-margin {

@@ -57,6 +57,10 @@ document.addEventListener("DOMContentLoaded", function() {
  			enlargedImageDiv.appendChild(arrowRight)
  		}
 
+ 	// 	image.onload = function(){
+  //   		image.src = this.src;   
+		// };
+
 
 
 	  	document.getElementById("thumbnail-container").insertBefore(enlargedImageDiv, document.getElementById("thumbnail-container").childNodes[0])
@@ -65,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 	var photoReq = new XMLHttpRequest();
-	photoReq.open('GET', 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=ded338de44e410863f9fcdf04d3d7a4f&photoset_id=72157669478370805&user_id=141462154%40N07&format=json&nojsoncallback=1');
+	photoReq.open('GET', 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=8efcb999a58dc10aa56ce814d6ca951e&photoset_id=72157669478370805&user_id=141462154%40N07&format=json&nojsoncallback=1');
 	photoReq.send(null);
 
 
@@ -96,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	  		var d = photoArray[s]
 	  		var https = "https://farm"
 	  		var domain = ".staticflickr.com/"
-	  		var photoComplete = https + d.farm + domain + d.server + "/" + d.id + "_" + d.secret + "_q.jpg"
+	  		var photoComplete = https + d.farm + domain + d.server + "/" + d.id + "_" + d.secret + "_z.jpg"
 	  		var photoCompleteMain = https + d.farm + domain + d.server + "/" + d.id + "_" + d.secret + "_z.jpg"
 	  		var pictureDiv = document.createElement("div");
 
@@ -114,8 +118,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	  		function createImg() {
 	  			var image = document.createElement("img");
 	  			image.setAttribute("src", photoComplete);
-	  			image.setAttribute("height", "110");
-	  			image.setAttribute("width", "110");
 	  			image.setAttribute("alt", "Flower");
 	  			document.getElementById(pictureDiv.id).appendChild(image);
 	  		}	
