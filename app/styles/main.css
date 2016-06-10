@@ -84,11 +84,21 @@ header {
 	z-index: 1;
 }
 
+@media (max-width: 1150px) {
+  	.enlarged-photo > img {
+  		height: 300px;
+	}
+	#enlarged-photo {
+  		left: 5%;
+  		right: 5%;
+	}
+}
+
+
 .enlarged-photo {
 	position: fixed;
 	top: 150px;
 	left: 15%;
-	width 
 	right: 15%;
 	opacity: 1;
 	z-index: 2;
@@ -99,6 +109,7 @@ header {
     -o-animation: fadein 1s; /* Opera < 12.1 */
     animation: fadein 1s;
 }
+
 
 @keyframes fadein {
     from { opacity: 0; }
@@ -129,8 +140,31 @@ header {
     to   { opacity: 1; }
 }
 
+@media (max-width: 1100) {
+  	.enlarged-photo {
+  		left: 5%;
+  		right: 5%;
+	}
+}
+
+
 .enlarged-photo > img {
 	border: solid 10px white;
+}
+
+
+@media (max-width: 1150px) {
+  	.arrow-right {
+  		border-top: 30px solid transparent;
+  		border-bottom: 30px solid transparent;
+  		border-left: 30px solid white;
+  	}
+
+  	.arrow-left {
+  		border-top: 30px solid transparent;
+  		border-bottom: 30px solid transparent; 
+  		border-right:30px solid white;
+  	}
 }
 
 .arrow-right {

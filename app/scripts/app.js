@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //Controls "digest cycle" for the enlargment and change of images
 
-
   function createPhotoUrl(d) {
     var https = "https://farm"
     var domain = ".staticflickr.com/"
@@ -17,49 +16,53 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
 	function digest(photoCompleteMain, photoNumber, album) {
-		var background = document.createElement("div");
 		
-    background.className = "enlarged-photo-background"
-		background.id = "photo-background"
-		background.onclick = function() { 
-			tearDownImage()
-		};
+    function createBackground() {
+      var background = document.createElement("div");
+      background.className = "enlarged-photo-background"
+      background.id = "photo-background"
+      background.onclick = function() { 
+        tearDownImage()
+      };
+      return background
+    }
+    
+    function createArrow(classNme, number) {
+      var arrow = document.createElement("div");
+      arrow.className = classNme;
+      arrow.onclick = function() { 
+        tearDownImage()
+        d = album[number]
+        digest(createPhotoUrl(d), number, album)
+      };
+      return arrow;
+    }
 
-		var enlargedImageDiv = document.createElement("div");
-		var image = document.createElement("img");
-		var arrowRight = document.createElement("div");
-		var arrowLeft = document.createElement("div");
+    function createLargeImg() {
+      var enlargedImageDiv = document.createElement("div");
+      enlargedImageDiv.id = "enlarged-photo"
+      enlargedImageDiv.className = "enlarged-photo"
+      
+      function createImgAtt() {
+        var image = document.createElement("img");
+        image.setAttribute("src", photoCompleteMain);
+        return image
+      }
 
-		arrowRight.className = "arrow-right"
-		arrowLeft.className = "arrow-left"
+      if (photoNumber !== 0) {
+        enlargedImageDiv.appendChild(createArrow('arrow-left', photoNumber - 1))
+      }
 
-		arrowRight.onclick = function() { 
-			tearDownImage()
-			d = album[photoNumber + 1]
-			digest(createPhotoUrl(d), photoNumber + 1, album)
-		};
+      enlargedImageDiv.appendChild(createImgAtt())
+      if (photoNumber !== album.length - 1) {
+        enlargedImageDiv.appendChild(createArrow('arrow-right', photoNumber + 1))
+      }
 
-		arrowLeft.onclick = function() {
-			tearDownImage()
-			d = album[photoNumber - 1]
-			digest(createPhotoUrl(d), photoNumber - 1, album)
-		};
-
-		image.setAttribute("src", photoCompleteMain);
-		image.complete
-		enlargedImageDiv.id = "enlarged-photo"
-		enlargedImageDiv.className = "enlarged-photo"
+    return enlargedImageDiv
+    }
 		
-		if (photoNumber !== 0) {
-			enlargedImageDiv.appendChild(arrowLeft)
-		}
-		enlargedImageDiv.appendChild(image)
-		if (photoNumber !== album.length - 1) {
-			enlargedImageDiv.appendChild(arrowRight)
-		}
-
-		parentContainer.insertBefore(enlargedImageDiv, parentContainer.childNodes[0])
-		parentContainer.insertBefore(background, parentContainer.childNodes[0])
+		parentContainer.insertBefore(createLargeImg(), parentContainer.childNodes[0])
+		parentContainer.insertBefore(createBackground(), parentContainer.childNodes[0])
 	}
 
   function processThumbnails(obj) {
