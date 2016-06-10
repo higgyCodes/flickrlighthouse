@@ -3,6 +3,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //Controls "digest cycle" for the enlargment and change of images
 
+
+  function createPhotoUrl(d) {
+    var https = "https://farm"
+    var domain = ".staticflickr.com/"
+   return https + d.farm + domain + d.server + "/" + d.id + "_" + d.secret + "_z.jpg"
+  }
+
   function tearDownImage() {
     window.history.pushState({urlPath:'/'},"",'/')
     parentContainer.removeChild(document.getElementById("photo-background"));
@@ -29,19 +36,13 @@ document.addEventListener("DOMContentLoaded", function() {
 		arrowRight.onclick = function() { 
 			tearDownImage()
 			d = album[photoNumber + 1]
-			var https = "https://farm"
-			var domain = ".staticflickr.com/"
-			photoCompleteMain = https + d.farm + domain + d.server + "/" + d.id + "_" + d.secret + "_z.jpg"
-			digest(photoCompleteMain, photoNumber + 1, album)
+			digest(createPhotoUrl(d), photoNumber + 1, album)
 		};
 
 		arrowLeft.onclick = function() {
 			tearDownImage()
 			d = album[photoNumber - 1]
-			var https = "https://farm"
-			var domain = ".staticflickr.com/"
-			photoCompleteMain = https + d.farm + domain + d.server + "/" + d.id + "_" + d.secret + "_z.jpg"
-			digest(photoCompleteMain, photoNumber - 1, album)
+			digest(createPhotoUrl(d), photoNumber - 1, album)
 		};
 
 		image.setAttribute("src", photoCompleteMain);
@@ -72,12 +73,6 @@ document.addEventListener("DOMContentLoaded", function() {
   	function createThumbnail(s) {
   		var data = photoArray[s]
   		var pictureDiv = document.createElement("div");
-
-      function createPhotoUrl(d) {
-          var https = "https://farm"
-          var domain = ".staticflickr.com/"
-       return https + d.farm + domain + d.server + "/" + d.id + "_" + d.secret + "_z.jpg"
-      }
 
   		function placeholder() {
         var ph = document.createElement("img")
