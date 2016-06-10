@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
   function makeRequest() {
 
   	var photoReq = new XMLHttpRequest();
-  	photoReq.open('GET', 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=8efcb999a58dc10aa56ce814d6ca951e&photoset_id=72157669478370805&user_id=141462154%40N07&format=json&nojsoncallback=1');
+  	photoReq.open('GET', 'https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=8efcb999a58dc10aa56ce814d6ca951e&photoset_id=72157666929862283&user_id=141462154%40N07&format=json&nojsoncallback=1');
   	photoReq.send(null);
 
 
