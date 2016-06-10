@@ -1,0 +1,16 @@
+{
+	"name": "flickr-gallery",
+	"main": "index.js",
+	"engine": {
+		"node": "0.10.26"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/pathiggins13/flickrlighthouse.git"
+	},
+	"author": "pathiggins",
+	"licence": "ISC",
+	"dependencies": {
+		"express": "^4.13.1"
+	}
+}

@@ -1,0 +1,5 @@
+{
+	"name": "flickr gallery",
+	"description": "A light-weight app using the flickr api built in vanilla javascript",
+	"repository": "https://github.com/pathiggins13/flickrlighthouse"
+}
